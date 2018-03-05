@@ -12,31 +12,28 @@ library(lme4)
 library(piecewiseSEM)
 
 # Read in data
-dat <- read.csv("~/Dropbox/UMHB/Scholars' Day/Overwatch/WinstonsLab_data.csv")
+mdat <- read.csv("~/overwatch/data/WinstonsLab_data.csv")
 
 # Model without respect to grouping
-m0 <- lm(rating ~ fwin, data = dat)
+m0 <- lm(rating ~ fwin, data = mdat)
 summary(m0)
 sem.model.fits(m0)
-dat$simple.model <- predict(m0)
+mdat$simple.model <- predict(m0)
 
 # Model with varying intercepts
-m1 <- lmer(rating ~ fwin + (1 | hero), data = dat)
+m1 <- lmer(rating ~ fwin + (1 | hero), data = mdat)
 summary(m1)
 sem.model.fits(m1)
-dat$pred_ri <- predict(m1)
+mdat$pred_ri <- predict(m1)
 
 # Model with varying slopes
-m2 <- lmer(rating ~ fwin + (0 + fwin | hero), data = dat)
+m2 <- lmer(rating ~ fwin + (0 + fwin | hero), data = mdat)
 summary(m2)
 sem.model.fits(m2)
-dat$pred_rs <- predict(m2)
+mdat$pred_rs <- predict(m2)
 
 # Model with varying slopes and intercepts
-m3 <- lmer(rating ~ fwin + (1 + fwin | hero), data = dat)
+m3 <- lmer(rating ~ fwin + (1 + fwin | hero), data = mdat)
 summary(m3)
 sem.model.fits(m3)
-dat$pred_rsi <- predict(m3)
-
-# Write out new data frame with predicted values
-write.csv(dat, "~/Dropbox/UMHB/Scholars' Day/Overwatch/overwatch_data.csv")
+mdat$pred_rsi <- predict(m3)

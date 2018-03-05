@@ -6,14 +6,15 @@
 # Load pacakge libraries
 if(!require("tidyverse")){
   utils::install.packages("tidyverse")
-  library("tidyverse")
 }
 
+library("tidyverse")
+
 # Read in data 
-dat <- read.csv("~/Dropbox/UMHB/Scholars' Day/Overwatch/overwatch_data.csv")
+fdat <- read.csv("~/overwatch/data/overwatch_data.csv")
 
 # M0 plot
-ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) + 
+ggplot(data = fdat, aes(x = fwin, y = rating, color = hero)) + 
   geom_point(size = 4, alpha = .5) + 
   scale_x_continuous(limits = c(0.1, 0.9), 
     breaks = seq(0, 1, 0.1), name = "\nFight Win Rate") +
@@ -34,7 +35,7 @@ ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) +
     face = "bold"))
 
 # M1 plot
-ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) + 
+ggplot(data = fdat, aes(x = fwin, y = rating, color = hero)) + 
   geom_point(size = 4, alpha = .5) + 
   scale_x_continuous(limits = c(0.1, 0.9), 
     breaks = seq(0, 1, 0.1), name = "\nFight Win Rate") +
@@ -56,7 +57,7 @@ ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) +
     face = "bold"))
 
 # M2 plot
-ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) + 
+ggplot(data = fdat, aes(x = fwin, y = rating, color = hero)) + 
   geom_point(size = 4, alpha = .5) + 
   scale_x_continuous(limits = c(0.1, 0.9), 
     breaks = seq(0, 1, 0.1), name = "\nFight Win Rate") +
@@ -78,7 +79,7 @@ ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) +
     face = "bold"))
 
 # M3 plot
-ggplot(data = dat, aes(x = fwin, y = rating, color = hero)) + 
+ggplot(data = fdat, aes(x = fwin, y = rating, color = hero)) + 
   geom_point(size = 4, alpha = .5) + 
   scale_x_continuous(limits = c(0.1, 0.9), 
     breaks = seq(0, 1, 0.1), name = "\nFight Win Rate") +
