@@ -13,6 +13,7 @@ library(piecewiseSEM)
 
 # Read in data
 mdat <- read.csv("~/overwatch/data/WinstonsLab_data.csv")
+mdat$hero.role <- stringr::str_to_title(mdat$hero.role)
 
 # Model without respect to grouping
 m0 <- lm(rating ~ fwin, data = mdat)
