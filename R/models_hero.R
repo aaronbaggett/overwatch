@@ -19,7 +19,7 @@ mdat$hero.role <- stringr::str_to_title(mdat$hero.role)
 m0 <- lm(rating ~ fwin, data = mdat)
 summary(m0)
 sem.model.fits(m0)
-mdat$simple.model <- predict(m0)
+mdat$simple_model <- predict(m0)
 
 # Model with varying intercepts
 m1 <- lmer(rating ~ fwin + (1 | hero), data = mdat)
