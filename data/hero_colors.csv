@@ -1,6 +1,7 @@
+hero,hero_color
 Genji,#b6ef13
 Mei,#87d7f6
-Dva,#feabe6
+D.Va,#feabe6
 Roadhog,#BF9278
 Junkrat,#c7712a
 Lucio,#80cc2e
@@ -17,3 +18,8 @@ Tracer,#ce532a
 Widowmaker,#716e8e
 Winston,#595959
 Zenyatta,#bb8a24
+Ana,
+Doomfist,
+Moira,
+Orisa,
+Sombra,
