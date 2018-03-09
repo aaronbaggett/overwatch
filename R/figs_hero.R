@@ -12,6 +12,9 @@ library("tidyverse")
 
 # Read in data 
 fdat <- read.csv("~/overwatch/data/overwatch_data.csv")
+cols <- read.csv("data/hero_colors.csv")
+names(cols) <- c("hero", "color")
+fdat <- inner_join(fdat, cols)
 
 # M0 plot
 ggplot(data = fdat, aes(x = fwin, y = rating, color = hero)) + 
