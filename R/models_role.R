@@ -15,28 +15,28 @@ library(piecewiseSEM)
 mdat <- read.csv("~/overwatch/data/WinstonsLab_data.csv")
 mdat$hero.role <- stringr::str_to_title(mdat$hero.role)
 
-# Model without respect to grouping
+# Completely fixed effects model
 m0.1 <- lm(rating ~ fwin, data = mdat)
 summary(m0.1)
 coef(m0.1)
 sem.model.fits(m0.1)
 mdat$simple_model_role <- predict(m0.1)
 
-# Model with varying intercepts
+# Random intercepts model
 m1.1 <- lmer(rating ~ fwin + (1 | hero.role), data = mdat)
 summary(m1.1)
 coef(m1.1)
 sem.model.fits(m1.1)
 mdat$pred_ri_role <- predict(m1.1)
 
-# Model with varying slopes
+# Random slopes model
 m2.1 <- lmer(rating ~ fwin + (0 + fwin | hero.role), data = mdat)
 summary(m2.1)
 coef(m2.1)
 sem.model.fits(m2.1)
 mdat$pred_rs_role <- predict(m2.1)
 
-# Model with varying slopes and intercepts
+# Random intercepts and random slopes model
 m3.1 <- lmer(rating ~ fwin + (1 + fwin | hero.role), data = mdat)
 summary(m3.1)
 coef(m3.1)
