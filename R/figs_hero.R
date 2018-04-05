@@ -41,7 +41,7 @@ ggplot(data = fdat, aes(x = fwin, y = rating, color = color)) +
     face = "bold")) + scale_color_manual(values = fdat$color)
 
 # M1 plot
-ggplot(data = fdat, aes(x = fwin, y = rating, color = hero)) + 
+ggplot(data = mdat, aes(x = fwin, y = rating, color = hero)) + 
   geom_point(size = 4, alpha = .5) + 
   scale_x_continuous(limits = c(0.1, 0.9), 
     breaks = seq(0, 1, 0.1), name = "\nFight Win Rate") +

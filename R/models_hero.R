@@ -42,3 +42,18 @@ summary(m3)
 coef(m3)
 sem.model.fits(m3)
 mdat$pred_rsi <- predict(m3)
+
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+
+mdat %>% 
+  group_by(hero) %>% 
+  summarize(n = length(hero),
+    pred_rank = mean(pred_ri),
+    sd_pred_rank = sd(pred_ri),
+    se = sd_pred_rank/(sqrt(n)),
+    me = 1.96 * se,
+    ll = pred_rank - me,
+    ul = pred_rank + me) %>% 
+  arrange(desc(pred_rank))
